@@ -1,13 +1,16 @@
 <template>
     <header :id="id"
             class="png-header">
-        <BackgroundPromo :faded="false"/>
+        <BackgroundPromo :faded="false"
+                :no-overlay="backgroundNoOverlay"
+                :overlay-color="backgroundOverlayColor"/>
 
         <!-- Content -->
         <div class="container-xxl">
             <article class="png-hero-header">
-                <!-- Logo -->
-                <ImageView :src="logoUrl"
+                <!-- Logo (optional) -->
+                <ImageView v-if="showLogo"
+                           :src="logoUrl"
                            :spinner-enabled="true"
                            :alt="title"
                            class="png-hero-header-logo"/>
@@ -45,10 +48,15 @@ const props = defineProps({
     title: String,
     subtitle: String,
     logoUrl: String,
+    showLogo: { type: Boolean, default: true },
     showButton: Boolean,
     buttonLabel: String,
     buttonIcon: String,
-    buttonUrl: String
+    buttonUrl: String,
+    /** When true, hero background is just the image with no dark overlay */
+    backgroundNoOverlay: Boolean,
+    /** Solid overlay color over the background image (e.g. #4E4E4E66 for 40% darken) */
+    backgroundOverlayColor: String
 })
 
 const parsedTitle = computed(() => {
@@ -65,12 +73,12 @@ const parsedSubtitle = computed(() => {
 
 header.png-header {
     --height: clamp(650px, 100vh, 1050px);
-    --content-margin-top: 80px;
+    --content-margin-top: 300px;
     --max-logo-proportion:45vw;
     --max-logo-height:50vh;
     @include media-breakpoint-down(xl) {--max-logo-height: 35vh;}
     @include media-breakpoint-down(lg) {--max-logo-height: 30vh; }
-    @include media-breakpoint-down(md) {--content-margin-top: 65px;}
+    @include media-breakpoint-down(md) {--content-margin-top: 100px;}
 
     --content-height: calc(var(--height) - var(--content-margin-top));
     --logo-proportion: clamp(190px, 45vw, min(37.5vh, 35vw, 350px));
@@ -80,32 +88,39 @@ header.png-header {
 
     div.container-xxl {
         display: flex;
-        align-items: center;
-        justify-content: center;
+        align-items: flex-start;
+        justify-content: flex-start;
 
         height: var(--height);
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
         padding-bottom: 2rem;
+
+        @include media-breakpoint-up(lg) {
+            padding-left: 3rem;
+        }
     }
 
     article.png-hero-header {
         display: flex;
-        align-items: center;
-        justify-content: center;
+        align-items: flex-start;
+        justify-content: flex-start;
         flex-direction: column;
-        padding-top:var(--content-margin-top);
+        padding-top: var(--content-margin-top);
+        max-width: 50%;
+        text-align: left;
     }
 
     div.png-hero-header-logo {
         height: var(--logo-proportion);
         width: var(--logo-proportion);
+        align-self: flex-start;
     }
 
     h1.heading {
-        color:$white;
+        color: $white;
         text-transform: uppercase;
-        text-align: center;
+        text-align: left;
         font-weight: 700;
         font-size: calc(var(--logo-proportion)/6);
         padding: calc(var(--logo-proportion)/8) 0 calc(var(--logo-proportion)/180);
@@ -118,7 +133,7 @@ header.png-header {
         font-size: clamp(16px, calc(var(--logo-proportion)/14), 100px);
         padding: calc(var(--logo-proportion)/20) 0;
         line-height: 24px;
-        text-align: center;
+        text-align: left;
     }
 }
 </style>

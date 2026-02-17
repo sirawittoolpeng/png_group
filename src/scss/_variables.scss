@@ -1,5 +1,5 @@
 /** Font Awesome webfonts path **/
-$fa-font-path:"@fortawesome/fontawesome-free/webfonts";
+$fa-font-path: "@fortawesome/fontawesome-free/webfonts";
 
 /** Overriding Bootstrap's contrast ratio. **/
 $min-contrast-ratio: 1.5 !default;
@@ -9,8 +9,8 @@ $font-family-base: "Saira", sans-serif;
 $headings-font-family: "Patua One", sans-serif;
 
 /** Bootstrap Colors **/
-$primary: #ff5900;
-$dark: #212529;
+$primary: #F7F5F6;
+$dark: #252322;
 $success: #038600;
 $light: #fcfcfc;
 $white: white;
@@ -19,7 +19,7 @@ $white: white;
 $background-color: #fefefe;
 $nav-background-color: $dark;
 $footer-bg-color: $dark;
-$footer-bg-highlight-color: darken($dark, 1%);
+$footer-bg-highlight-color: $dark;
 
 /** Dimensions **/
 $navbar-height: 71px;

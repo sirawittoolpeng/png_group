@@ -38,10 +38,10 @@ const linkList = computed(() => {
 
     return sections.map(section => {
         return {
-            path: section.hash,
+            path: section.path,
             label: section.name,
             faIcon: section.faIcon,
-            isActive: currentSection.value?.id === section.id
+            isActive: section.href ? route.path === section.href : currentSection.value?.id === section.id
         }
     }).filter(section => section.label && section.path)
 })
@@ -91,6 +91,7 @@ const _onWindowEvent = () => {
 
     const sections = currentPageSections?.value
     for (const section of sections) {
+        if (section.href) continue
         const sectionDiv = document.querySelector(section.hash)
         if (!sectionDiv) continue
 

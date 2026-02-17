@@ -2,9 +2,12 @@
     <div class="png-page-wrapper"
          :class="noPadding ? `png-page-wrapper-no-padding` : ``"
          :id="props.id">
-        <component v-for="sectionInfo in sections"
-                   :is="sectionInfo.component"
-                   :id="sectionInfo.id"/>
+        <template v-for="sectionInfo in sections"
+                  :key="sectionInfo.id">
+            <component v-if="sectionInfo.component"
+                      :is="sectionInfo.component"
+                      :id="sectionInfo.id"/>
+        </template>
     </div>
 </template>
 

@@ -7,7 +7,6 @@
 <script setup>
 import PageWrapper from "/src/vue/components/layout/PageWrapper.vue"
 import SectionInfo from "/src/models/SectionInfo.js"
-// import AboutSection from "/src/vue/content/sections/AboutSection.vue"
 // import ContactSection from "/src/vue/content/sections/ContactSection.vue"
 // import FaqSection from "/src/vue/content/sections/FaqSection.vue"
 // import FeaturedProjectSection from "/src/vue/content/sections/FeaturedProjectSection.vue"
@@ -19,9 +18,10 @@ import HeroSection from "/src/vue/content/sections/HeroSection.vue"
 // import TeamSection from "/src/vue/content/sections/TeamSection.vue"
 
 const sections = [
-    new SectionInfo('hero',         HeroSection,            null,           null),
-    // new SectionInfo('about',        AboutSection,           'About',        'pi pi-box'),
-    // new SectionInfo('services',     ServicesSection,        'Services',     'pi pi-wrench'),
+    new SectionInfo('hero',         HeroSection,            'Home',           null),
+    new SectionInfo('product',      null,                    'Product',      'pi pi-box', '/product'),
+    new SectionInfo('about',        null,                    'About',        'pi pi-users', '/about'),
+    new SectionInfo('contact',      null,                    'Contact',      'pi pi-envelope', '/contact'),
     // new SectionInfo('history',      HistorySection,         'History',      'pi pi-clock'),
     // new SectionInfo('featured',     FeaturedProjectSection, 'Zork',         'pi pi-qrcode'),
     // new SectionInfo('portfolio',    PortfolioSection,       'Portfolio',    'pi pi-folder-open'),

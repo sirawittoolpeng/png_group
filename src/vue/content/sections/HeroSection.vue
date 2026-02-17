@@ -3,10 +3,11 @@
     <PageHeader :id="props.id"
                 title="P.N.G. GROUP"
                 subtitle="รับผลิตสินค้าพลาสติกทุกประเภท <br>มีแบบสินค้าให้เลือกมากกว่า 500 รายการ"
-                logo-url="images/logo/png_logo.svg"
+                :show-logo="false"
                 :show-button="true"
                 button-label="GET STARTED"
-                button-url="#about"/>
+                button-url="#about"
+                :background-overlay-color="'#4E4E4E66'"/>
 </template>
 
 <script setup>

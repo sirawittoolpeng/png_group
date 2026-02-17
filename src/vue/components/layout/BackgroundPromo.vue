@@ -1,12 +1,20 @@
 <template>
     <div class="png-promo-background">
-        <div :class="`png-promo-background-overlay-${faded ? `faded` : `default`}`"/>
+        <div v-if="overlayColor"
+             class="png-promo-background-overlay-custom"
+             :style="{ backgroundColor: overlayColor }"/>
+        <div v-else-if="!noOverlay"
+             :class="`png-promo-background-overlay-${faded ? `faded` : `default`}`"/>
     </div>
 </template>
 
 <script setup>
-const props = defineProps({
-    faded: Boolean
+defineProps({
+    faded: Boolean,
+    /** When true, show only the image with no dark overlay */
+    noOverlay: Boolean,
+    /** Solid overlay color (e.g. #4E4E4E66 for 40% darken). Takes precedence over gradient when set. */
+    overlayColor: String
 })
 </script>
 
@@ -19,7 +27,7 @@ div.png-promo-background {
     width: 100%;
     z-index: -1;
 
-    background-image: url('/src/assets/header-bg.png');
+    background-image: url('/src/assets/header-bg.jpg');
     background-position: center;
     background-size: cover;
 }
@@ -40,5 +48,11 @@ div.png-promo-background-overlay-faded {
 
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(30, 30, 30, 0.83)), color-stop(70%, rgba(30, 30, 30, 0.93)), color-stop(80%, rgba(30, 30, 30, 1)), to(rgba(30, 30, 30, 1)));
     background-image: linear-gradient(180deg, rgba(30, 30, 30, 0.83) 0%, rgba(30, 30, 30, 0.93) 30%, rgba(30, 30, 30, 0.99) 60%, rgba(30, 30, 30, 1) 100%);
+}
+
+div.png-promo-background-overlay-custom {
+    position: relative;
+    height: 100%;
+    width: 100%;
 }
 </style>
