@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "ghdeploy": "vite build && cd dist && cp index.html 404.html"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
