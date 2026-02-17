@@ -1,14 +1,17 @@
-name: Deploy template to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   workflow_dispatch:
   push:
     branches:
       - main
+      - master
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       # Checkout the repository
@@ -27,11 +30,14 @@ jobs:
 
       # Build the project
       - name: Build project
-        run: npm run ghdeploy
+        run: npm run build
 
-      # Deploy to GitHub pages
-      - name: Deploy to GitHub pages
+      - name: Copy index to 404 for SPA routing
+        run: cp dist/index.html dist/404.html
+
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist
+          publish_dir: ./dist
