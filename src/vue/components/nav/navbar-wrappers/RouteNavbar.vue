@@ -3,7 +3,7 @@
             :brand-label="label"
             brand-url="/"
             :link-list="linkList"
-            :expandable="false"/>
+            :expandable="isTransparentAtTopRoute"/>
 </template>
 
 <script setup>
@@ -31,6 +31,10 @@ const linkList = computed(() => {
             return r.label
         })
 })
+
+/** Routes that show a hero at top: navbar is transparent when scrolled to top */
+const transparentAtTopRoutes = ['about']
+const isTransparentAtTopRoute = computed(() => transparentAtTopRoutes.includes(route.name))
 </script>
 
 <style lang="scss" scoped>

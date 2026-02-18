@@ -7,10 +7,10 @@
 <script setup>
 import PageWrapper from "/src/vue/components/layout/PageWrapper.vue"
 import SectionInfo from "/src/models/SectionInfo.js"
-import AboutSection from "/src/vue/content/sections/AboutSection.vue"
+import ContactSection from "/src/vue/content/sections/ContactSection.vue"
 
 const sections = [
-    new SectionInfo('about', AboutSection)
+    new SectionInfo('contact', ContactSection)
 ]
 </script>
 

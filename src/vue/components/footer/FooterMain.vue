@@ -95,7 +95,7 @@ defineProps({
 
 .png-footer-main {
     background-color: $footer-bg-color;
-    padding: 2.5rem 0;
+    padding: 4.5rem 0;
 }
 
 .png-footer-main-wrap {
@@ -145,7 +145,7 @@ defineProps({
 }
 
 .png-footer-address {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .png-footer-brand-link {
@@ -174,7 +174,7 @@ defineProps({
 .png-footer-nav {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 2.5rem;
 
     @include media-breakpoint-up(lg) {
         align-items: flex-start;

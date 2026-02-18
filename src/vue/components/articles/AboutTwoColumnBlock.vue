@@ -40,7 +40,7 @@ defineProps({
     font-size: clamp(1.5rem, 4vw, 2.25rem);
     font-weight: 700;
     color: $dark;
-    text-align: center;
+    text-align: left;
     margin: 0 0 2rem 0;
     text-transform: uppercase;
     letter-spacing: 0.02em;
@@ -60,6 +60,13 @@ defineProps({
 
 .png-about-two-col-col {
     min-width: 0;
+
+    @include media-breakpoint-up(md) {
+        &:last-child {
+            border-left: 1px solid $light-4;
+            padding-left: 1.5rem;
+        }
+    }
 }
 
 .png-about-two-col-p {
@@ -73,4 +80,5 @@ defineProps({
         margin-bottom: 0;
     }
 }
+
 </style>

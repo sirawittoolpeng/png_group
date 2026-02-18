@@ -25,12 +25,12 @@ const router = createRouter({
             }
         },
         {
-            path: "/about",
-            name: "about",
-            component: AboutPage,
+            path: "/product",
+            name: "product",
+            component: ProductPage,
             props: {
-                label: "About",
-                faIcon: "pi pi-users",
+                label: "Product",
+                faIcon: "pi pi-box",
                 inPageNavbar: false,
                 shouldAlwaysPreload: false,
                 breadcrumbs: [
@@ -39,12 +39,12 @@ const router = createRouter({
             }
         },
         {
-            path: "/product",
-            name: "product",
-            component: ProductPage,
+            path: "/about",
+            name: "about",
+            component: AboutPage,
             props: {
-                label: "Product",
-                faIcon: "pi pi-box",
+                label: "About",
+                faIcon: "pi pi-users",
                 inPageNavbar: false,
                 shouldAlwaysPreload: false,
                 breadcrumbs: [

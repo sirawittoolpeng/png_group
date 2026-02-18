@@ -33,8 +33,8 @@ const footerData = {
     companyName: "",
     navLinks: [
         { label: "Home", path: "/" },
-        { label: "About", path: "/about" },
         { label: "Product", path: "/product" },
+        { label: "About", path: "/about" },
         { label: "Contact", path: "/contact" }
     ],
     addressLines: [

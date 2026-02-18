@@ -1,6 +1,6 @@
 <template>
-    <div class="png-navbar-links-wrapper">
-        <ul class="png-navbar-links" :class="`${collapsed ? 'collapsed' : ''}`">
+    <div class="png-navbar-links-wrapper" role="navigation">
+        <ul class="png-navbar-links" :class="collapsed ? 'collapsed' : ''">
             <li v-for="link in parsedLinks">
                 <Link :url="link.path">
                     <button class="png-nav-link"
@@ -73,15 +73,22 @@ const _onLinkClicked = () => {
 <style lang="scss" scoped>
 @import "/src/scss/_theming.scss";
 
+div.png-navbar-links-wrapper {
+    align-self: center;
+    flex-shrink: 0;
+}
+
 ul.png-navbar-links {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
+    gap: 1.75rem;
 
     @include media-breakpoint-down(lg) {
         flex-direction: column;
         margin: 2px 0 15px;
+        gap: 0;
     }
 }
 
@@ -94,14 +101,15 @@ ul.png-navbar-links.collapsed {
 button.png-nav-link {
     background-color: transparent;
     border: 0;
-    padding: 0 0 0 1.2rem;
+    padding: 0 0 0.25em 0;
 
     font-family: $font-family-base;
     color: $light-3;
     text-transform: uppercase;
+    width: max-content;
 
     @include media-breakpoint-down(xl) {
-        padding: 0 0 0 0.9rem;
+        padding: 0 0 0.25em 0;
     }
 
     @include media-breakpoint-down(lg) {
@@ -142,10 +150,46 @@ button.png-nav-link.hidden {
    }
 }
 
-button.png-nav-link:hover, button.png-nav-link.active {
+button.png-nav-link:hover {
     color: lighten($primary, 5%);
     i.png-nav-link-icon {
         color: lighten($primary, 25%);
+    }
+}
+
+button.png-nav-link.active {
+    color: inherit;
+
+    i.png-nav-link-icon {
+        color: inherit;
+    }
+
+    /* Underline only under the text (span), never full width */
+    span {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 6px;
+    }
+    span::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background: currentColor;
+    }
+
+    @include media-breakpoint-down(lg) {
+        margin-bottom: 8px;
+        margin-left: 12px;
+
+        span::after {
+            display: none;
+        }
+        span {
+            padding-bottom: 0;
+        }
     }
 }
 </style>

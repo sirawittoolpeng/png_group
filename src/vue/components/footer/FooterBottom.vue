@@ -41,7 +41,7 @@ const copyrightText = computed(() => props.copyright || strings.getCopyrightMess
 
 .png-footer-bottom {
     background-color: $footer-bg-highlight-color;
-    padding: 0.75rem 0;
+    padding: 1.5rem 0;
 }
 
 .png-footer-bottom-wrap {

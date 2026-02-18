@@ -40,16 +40,7 @@ const shouldSlot = computed(() => {
  */
 onMounted(() => {
     // replace the implementation below with your own analytics service...
-    fetch("https://admin.ryanbalieiro.com/api/analytics/mock", {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            params: {
-                url: utils.getRootLocation(),
-                template_id: "png-agency"
-            }
-        })
-    })
+     
 })
 
 watch(() => loaderAnimationStatus.value, () => {

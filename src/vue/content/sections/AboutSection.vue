@@ -1,6 +1,7 @@
 <template>
     <PageSection variant="default"
-                 :id="props.id">
+                 :id="props.id"
+                 class="about-section">
         <PageSectionContent>
             <AboutTwoColumnBlock title="P.N.G. GROUP CO., LTD"
                                  :left-paragraphs="englishParagraphs"
@@ -31,4 +32,8 @@ const thaiParagraphs = [
 
 <style lang="scss" scoped>
 @import "/src/scss/_theming.scss";
+
+:deep(section.about-section) {
+    padding-top: 4rem;
+}
 </style>

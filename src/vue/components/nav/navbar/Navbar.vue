@@ -92,9 +92,16 @@ nav.png-navbar {
 }
 
 nav.png-navbar-expanded {
+    background-color: transparent;
+    border-bottom: none;
+    box-shadow: none;
+
     @include media-breakpoint-up(lg) {
-        background-color: rgba(black, 0.01);
         padding: 15px 0;
+
+        :deep(button.png-nav-link) {
+            color: $white;
+        }
     }
     @include media-breakpoint-up(xl) {
         padding: 15px;
@@ -107,6 +114,7 @@ div.png-navbar-container {
     justify-content: space-between;
     min-height: $navbar-height;
     height: 100%;
+    border: none;
 
     @include media-breakpoint-down(lg) {
         flex-direction: column;

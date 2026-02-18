@@ -7,10 +7,11 @@
         <BackgroundPromo v-if="props.variant === 'promo'"
                          :faded="true"/>
 
-        <!-- Container -->
-        <div class="container-xxl">
+        <!-- Container (omit for full-width variant) -->
+        <div v-if="props.variant !== 'full'" class="container-xxl">
             <slot/>
         </div>
+        <slot v-else/>
     </section>
 </template>
 
@@ -22,7 +23,7 @@ const props = defineProps({
     id: String,
     variant: String, // default, primary, dark or promo.
     name: String,
-    faIcon: String
+    faIcon: String,
 })
 
 const classList = computed(() => {
@@ -68,5 +69,10 @@ section.png-section-dark {
 
 section.png-section-promo {
     background-color: transparent;
+}
+
+section.png-section-full {
+    padding-bottom: 0;
+    padding-top: 0;
 }
 </style>

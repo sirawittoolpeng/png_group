@@ -3,7 +3,8 @@
             class="png-header">
         <BackgroundPromo :faded="false"
                 :no-overlay="backgroundNoOverlay"
-                :overlay-color="backgroundOverlayColor"/>
+                :overlay-color="backgroundOverlayColor"
+                :image-url="backgroundImageUrl"/>
 
         <!-- Content -->
         <div class="container-xxl">
@@ -56,7 +57,9 @@ const props = defineProps({
     /** When true, hero background is just the image with no dark overlay */
     backgroundNoOverlay: Boolean,
     /** Solid overlay color over the background image (e.g. #4E4E4E66 for 40% darken) */
-    backgroundOverlayColor: String
+    backgroundOverlayColor: String,
+    /** Optional custom background image URL for the hero */
+    backgroundImageUrl: String
 })
 
 const parsedTitle = computed(() => {
