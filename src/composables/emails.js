@@ -3,8 +3,8 @@
  * API integration with EmailJS for sending e-mails.
  */
 import emailjs from "@emailjs/browser"
-import {useSettings} from "/src/composables/settings.js"
-import {useUtils} from "/src/composables/utils.js"
+import { useSettings } from "/src/composables/settings.js"
+import { useUtils } from "/src/composables/utils.js"
 
 const settings = useSettings()
 const utils = useUtils()
@@ -34,7 +34,7 @@ export const useEmails = () => {
             custom_subject: customSubject,
             message: message,
             custom_source: utils.getAbsoluteLocation(),
-            custom_source_name: "Foxy Agency"
+            custom_source_name: "P.N.G. GROUP CO., LTD"
         }
 
         const credentials = settings.getCredentialsForEmailJS()
