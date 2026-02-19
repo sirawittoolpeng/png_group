@@ -1,39 +1,165 @@
 <template>
-    <PageSection variant="default"
+    <PageSection variant="full"
                  :id="props.id"
                  class="about-section">
-        <PageSectionContent>
-            <AboutTwoColumnBlock title="P.N.G. GROUP CO., LTD"
-                                 :left-paragraphs="englishParagraphs"
-                                 :right-paragraphs="thaiParagraphs"/>
-        </PageSectionContent>
+        <div class="png-about-section-wrap">
+            <div class="png-about-section-spacer png-about-section-spacer-top"/>
+            <div class="png-about-section-grid">
+                <div class="png-about-section-text">
+                    <p class="png-about-section-label">About us</p>
+                    <h2 class="png-about-section-title">
+                        <span>Producing</span>
+                        <span>Premium Quality</span>
+                        <span>Product Since 1992</span>
+                    </h2>
+                    <p class="png-about-section-body">{{ thaiParagraph }}</p>
+                    <Link :url="learnMoreUrl"
+                          class="png-about-section-cta">
+                        Learn more →
+                    </Link>
+                </div>
+                <div class="png-about-section-image-wrap">
+                    <img :src="aboutSectionImage"
+                         alt="P.N.G. Group manufacturing"
+                         class="png-about-section-image"/>
+                </div>
+            </div>
+            <div class="png-about-section-spacer png-about-section-spacer-bottom"/>
+        </div>
     </PageSection>
 </template>
 
 <script setup>
 import PageSection from "/src/vue/components/layout/PageSection.vue"
-import PageSectionContent from "/src/vue/components/layout/PageSectionContent.vue"
-import AboutTwoColumnBlock from "/src/vue/components/articles/AboutTwoColumnBlock.vue"
+import Link from "/src/vue/components/generic/Link.vue"
+import aboutSectionImage from "/src/assets/about_section.png"
 
 const props = defineProps({
     id: String
 })
 
-const englishParagraphs = [
-    `Founded in January 1992, P.N.G. Group set out to be a leading plastic production company, specialising in Injection and Blow Molding plastic products. With our 30 years of experience, we offer high quality products at reasonable prices with excellent customer service. Our company provides full services from design to delivery. We have a professional team for each department. Therefore, we are able to meet our customer needs in both products and services. Our company is certified by Good Manufacturing Practice (GMP), ISO 9001 and Thai Industrial Standard (TISI).`,
-    `P.N.G. Group is located in Samut Sakhon, Thailand, with approximately 26,000 square metres.`
-]
+const learnMoreUrl = "#services"
 
-const thaiParagraphs = [
-    `บริษัท พี.เอ็น.จี. กรุ๊ป จำกัด เป็นผู้ผลิต และจัดจำหน่ายสินค้าพลาสติกครัวเรือน จากประสบการณ์ทำงานของเราด้านการขึ้นรูปพลาสติก ทั้งระบบฉีด (Injection) และเป้า (Blow-molding) ผสมผสานกับความชำนาญตลอด 30 ปี และเทคโนโลยี เราจึงผลิตสินค้าที่มีคุณภาพในราคาที่คุ้มค่าและเหมาะสม ตามความต้องการของลูกค้า ที่สำคัญทางบริษัทเรามีบริการครบวงจร เพื่อให้ลูกค้าได้รับประโยชน์สูงสุด`,
-    `ปัจจุบันตั้งอยู่ที่ 88 หมู่ 4 ตำบลท่าเสา อำเภอกระทุ่มแบน จังหวัดสมุทรสาคร 74110 บนพื้นที่เกือบ 20 ไร่`
-]
+const thaiParagraph = `บริษัทของเราเป็นผู้ผลิต และจัดจำหน่ายสินค้าพลาสติกครัวเรือน จากประสบการณ์การทำงานของเราด้านการขึ้นรูปพลาสติก ทั้งระบบฉีด (Injection) และระบบเป่า (Blow-molding) ผสมผสานกับความชำนาญตลอด 30 ปี และเทคโนโลยี เราจึงผลิตสินค้าที่มีคุณภาพ ในราคาที่คุ้มค่าและเหมาะสม ตามความต้องการของลูกค้า ที่สำคัญทางบริษัทเรามีบริการครบวงจรเพื่อให้ลูกค้าได้รับประโยชน์สูงสุด`
 </script>
 
 <style lang="scss" scoped>
 @import "/src/scss/_theming.scss";
 
+/* Full width to page edges; vertical spacing via spacer divs (can't collapse) */
+.png-about-section-wrap {
+    width: 100%;
+    max-width: 100vw;
+    padding: 0;
+}
+
+.png-about-section-spacer-top {
+    height: 6rem;
+}
+
+.png-about-section-spacer-bottom {
+    height: 6rem;
+    border-top: 1px solid $light-4;
+}
+
+.png-about-section-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    align-items: start;
+    margin: 3rem 0;
+
+    @include media-breakpoint-up(md) {
+        grid-template-columns: 0.9fr 1.1fr;
+        align-items: stretch;
+    }
+}
+
+.png-about-section-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 320px;
+    padding: 2.5rem 1.5rem 2.5rem 2rem;
+
+    @include media-breakpoint-up(md) {
+        min-height: 0;
+        padding: 3rem 3rem 3rem 2.5rem;
+    }
+    @include media-breakpoint-up(lg) {
+        padding-left: 3rem;
+    }
+    @include media-breakpoint-up(xxl) {
+        padding-left: 4rem;
+    }
+}
+
+.png-about-section-label {
+    margin: 0 0 1rem 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $light-6;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.png-about-section-title {
+    margin: 0 0 1.5rem 0;
+    font-family: $headings-font-family;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: $dark;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15em;
+}
+
+.png-about-section-body {
+    margin: 0 0 2rem 0;
+    font-size: 0.95rem;
+    color: $light-7;
+    line-height: 1.7;
+    max-width: 32em;
+}
+
+.png-about-section-cta {
+    margin-top: auto;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $light-6;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+
+    &:hover {
+        color: $dark;
+    }
+}
+
+/* Image column: full width to page edge, section height follows image (full size, no crop) */
+.png-about-section-image-wrap {
+    width: 100%;
+    min-height: 280px;
+
+    @include media-breakpoint-up(md) {
+        min-height: 0;
+    }
+}
+
+.png-about-section-image {
+    width: 100%;
+    height: auto;
+    min-height: 280px;
+    display: block;
+}
+
 :deep(section.about-section) {
-    padding-top: 4rem;
+    background-color: $background-color;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
 }
 </style>

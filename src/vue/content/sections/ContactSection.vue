@@ -1,6 +1,8 @@
 <template>
     <PageSection variant="full"
-                 :id="props.id">
+                 :id="props.id"
+                 class="png-contact-section-root">
+        <div class="png-contact-section-spacer-top"/>
         <div class="png-contact-section">
             <div class="png-contact-section-left">
                 <span class="png-contact-section-label">CONTACT</span>
@@ -36,19 +38,20 @@ const props = defineProps({
 <style lang="scss" scoped>
 @import "/src/scss/_theming.scss";
 
+.png-contact-section-spacer-top {
+    height: 6rem;
+}
+
 .png-contact-section {
     display: grid;
     grid-template-columns: 1fr;
     min-height: 320px;
     background-color: #F7F5F6;
+    align-items: start;
 
     @include media-breakpoint-up(md) {
         grid-template-columns: 1fr 1fr;
-        min-height: 420px;
-    }
-
-    @include media-breakpoint-up(xxl) {
-        min-height: 480px;
+        min-height: 0;
     }
 }
 
@@ -124,18 +127,15 @@ const props = defineProps({
 .png-contact-section-right {
     background-color: #F7F5F6;
     min-height: 240px;
-    overflow: hidden;
 
     @include media-breakpoint-up(md) {
-        min-height: 100%;
+        min-height: 0;
     }
 }
 
 .png-contact-section-image {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+    height: auto;
     display: block;
 }
 </style>
