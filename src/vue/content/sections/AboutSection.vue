@@ -54,12 +54,12 @@ const thaiParagraph = `บริษัทของเราเป็นผู้
 }
 
 .png-about-section-spacer-top {
-    height: 6rem;
+    height: 1rem;
+    background-color: $white;
 }
 
 .png-about-section-spacer-bottom {
     height: 6rem;
-    border-top: 1px solid $light-4;
 }
 
 .png-about-section-grid {

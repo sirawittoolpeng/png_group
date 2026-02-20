@@ -39,13 +39,13 @@ const props = defineProps({
 @import "/src/scss/_theming.scss";
 
 .png-contact-section-spacer-top {
-    height: 6rem;
+    height: 0.5rem;
 }
 
 .png-contact-section {
     display: grid;
     grid-template-columns: 1fr;
-    min-height: 320px;
+    min-height: 240px;
     background-color: #F7F5F6;
     align-items: start;
 
@@ -57,18 +57,18 @@ const props = defineProps({
 
 .png-contact-section-left {
     background-color: #F7F5F6;
-    padding: 2.5rem 1.5rem;
+    padding: 2rem 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
 
     @include media-breakpoint-up(md) {
-        padding: 3rem 3.5rem 3rem 4rem;
+        padding: 2.5rem 2.5rem 2.5rem 3rem;
     }
 
     @include media-breakpoint-up(xxl) {
-        padding: 4rem 4.5rem 4rem 5rem;
+        padding: 3rem 3.5rem 3rem 4rem;
     }
 }
 
@@ -126,7 +126,7 @@ const props = defineProps({
 
 .png-contact-section-right {
     background-color: #F7F5F6;
-    min-height: 240px;
+    min-height: 180px;
 
     @include media-breakpoint-up(md) {
         min-height: 0;
